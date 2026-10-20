@@ -1,0 +1,37 @@
+[workspace]
+name = "parcels-uxvalidation"
+channels = ["conda-forge"]
+platforms = ["linux-64", "osx-64", "osx-arm64", "win-64"]
+requires-pixi = ">=0.40.0"
+
+# Parcels runtime dependencies — installed from conda-forge so that native
+# extensions (e.g. py-triangle, netcdf4) resolve correctly.
+[dependencies]
+python = ">=3.11"
+netcdf4 = ">=1.6.0"
+numpy = ">=2.2.0"
+tqdm = ">=4.67.0"
+xarray = ">=2025.8.0"
+uxarray = ">=2026.4.1"
+dask = ">=2025.7.0"
+zarr = ">=3.1"
+xgcm = ">=0.9.0"
+cf_xarray = ">=0.10.0"
+cftime = ">=1.6.3"
+pooch = ">=1.8.0"
+polars = ">=1.32.0"
+pyarrow = ">=21.0.0"
+tabulate = ">=0.9.0"
+py-triangle = ">=20250106,<20250107"
+# notebook extras
+jupyter = "*"
+matplotlib-base = "*"
+pandas = ">=2.3"
+
+# Parcels itself — installed from the main branch on GitHub.
+[pypi-dependencies]
+parcels = { git = "https://github.com/parcels-code/parcels.git", branch = "main" }
+
+[tasks]
+lab      = { cmd = "jupyter lab",      description = "Launch JupyterLab." }
+notebook = { cmd = "jupyter notebook", description = "Launch Jupyter Notebook." }

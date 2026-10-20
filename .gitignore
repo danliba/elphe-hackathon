@@ -6,4 +6,4 @@
 *.png
 .ipynb_checkpoints/
 __pycache__/
-parcels-ux-validation-verification/
+.pixi/
